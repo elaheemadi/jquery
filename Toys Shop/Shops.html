@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script scr="jqueryui" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header></header>
+        <div class="main clearfix">
+            <nav id="menu" class="nav">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <span class="icon">
+                                <i aria-hidden="true" class="icon-home"></i>
+                            </span>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Shops.html">
+                            <span class="icon">
+                                <i aria-hidden="true" class="glyphicon glyphicon-picture"></i>
+                            </span>
+                            <span>Shopping</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Brands.html">
+                            <span class="icon">
+                                <i aria-hidden="true" class="glyphicon glyphicon-paperclip"></i>
+                            </span>
+                            <span>Brand</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <i aria-hidden="true" class="glyphicon glyphicon-tent"></i>
+                            </span>
+                            <span>Outdoor Play</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <i aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></i>
+                            </span>
+                            <span>Sale</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="modal_trigger" href="../contact.html">
+                            <span class="icon">
+                                <i aria-hidden="true" class="icon-contact"></i>
+                            </span>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div><!-- /container -->
+    <script>
+        //  The function to change the class
+        var changeClass = function (r, className1, className2) {
+            var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+            if (regex.test(r.className)) {
+                r.className = r.className.replace(regex, ' ' + className2 + ' ');
+            }
+            else {
+                r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"), ' ' + className1 + ' ');
+            }
+            return r.className;
+        };
+
+        //  Creating our button in JS for smaller screens
+        var menuElements = document.getElementById('menu');
+        menuElements.insertAdjacentHTML('afterBegin', '<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
+
+        //  Toggle the class on click to show / hide the menu
+        document.getElementById('menutoggle').onclick = function () {
+            changeClass(this, 'navtoogle active', 'navtoogle');
+        }
+
+        // http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
+        document.onclick = function (e) {
+            var mobileButton = document.getElementById('menutoggle'),
+                buttonStyle = mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+
+            if (buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+                changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+            }
+        }
+    </script>
+        <main>
+        <h5><img class="text" src="images/images.png" /><b>Free Shipping</b> with 20$ purchase   </h5>
+        </main>
+        <section class="text">
+            <!--Shops -->
+            <style>
+                .badge-notify {
+                    background: red;
+                    position: relative;
+                    top: -20px;
+                    right: 10px;
+                }
+
+                .my-cart-icon-affix {
+                    position: fixed;
+                    z-index: 999;
+                }
+            </style>
+            <div class="page-header">
+                <h3>
+                    All Products
+                </h3>
+                    <div style="float: right; cursor: pointer;">
+                        <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+                    </div>
+                
+            </div>
+                <div class="row">
+                <div class="col-md-3 text-center">
+                    <img src="../images/t1.jpg" width="150px" height="150px">
+                    <br>
+                    product 1 - <strong>$10</strong>
+                    <br>
+                    <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="10" data-quantity="1" data-image="images/img_1.png">Add to Cart</button>
+                    <a href="#" class="btn btn-info">Details</a>
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="../images/barbie/4.jpg" width="150px" height="150px">
+                    <br>
+                    product 2 - <strong>$20</strong>
+                    <br>
+                    <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20" data-quantity="1" data-image="images/img_2.png">Add to Cart</button>
+                    <a href="#" class="btn btn-info">Details</a>
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="../images/t3.jpg" width="150px" height="150px">
+                    <br>
+                    product 3 - <strong>$30</strong>
+                    <br>
+                    <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="images/img_3.png">Add to Cart</button>
+                    <a href="#" class="btn btn-info">Details</a>
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="../images/t4.jpg" width="150px" height="150px">
+                    <br>
+                    product 4 - <strong>$40</strong>
+                    <br>
+                    <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="images/img_4.png">Add to Cart</button>
+                    <a href="#" class="btn btn-info">Details</a>
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="../images/t5.jpg" width="150px" height="150px">
+                    <br>
+                    product 5 - <strong>$50</strong>
+                    <br>
+                    <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                    <a href="#" class="btn btn-info">Details</a>
+                </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/barbie/1.jpg" width="150px" height="150px">
+                        <br>
+                        product 6 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/t6.jpg" width="150px" height="150px">
+                        <br>
+                        product 7 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/barbie/2.jpg" width="150px" height="150px">
+                        <br>
+                        product 8 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/barbie/6.jpg" width="150px" height="150px">
+                        <br>
+                        product 9 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/barbie/7.jpg" width="150px" height="150px">
+                        <br>
+                        product 10 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/barbie/8.jpg" width="150px" height="150px">
+                        <br>
+                        product 11- <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/playmobil/1.jpg" width="150px" height="150px">
+                        <br>
+                        product 12 - <strong>$10</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="10" data-quantity="1" data-image="images/img_1.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/playmobil/2.jpg" width="150px" height="150px">
+                        <br>
+                        product 13 - <strong>$20</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20" data-quantity="1" data-image="images/img_2.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/playmobil/3.jpg" width="150px" height="150px">
+                        <br>
+                        product 14 - <strong>$30</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="images/img_3.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/playmobil/4.png" width="150px" height="150px">
+                        <br>
+                        product 15 - <strong>$40</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="images/img_4.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/playmobil/5.jpg" width="150px" height="150px">
+                        <br>
+                        product 16 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/playmobil/6.jpg" width="150px" height="150px">
+                        <br>
+                        product 17 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/playmobil/6.jpg" width="150px" height="150px">
+                        <br>
+                        product 18 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/playmobil/7.jpg" width="150px" height="150px">
+                        <br>
+                        product 19 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/shopkins/1.jpg" width="150px" height="150px">
+                        <br>
+                        product 20 - <strong>$10</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="10" data-quantity="1" data-image="images/img_1.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/shopkins/2.jpg" width="150px" height="150px">
+                        <br>
+                        product 21 - <strong>$20</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20" data-quantity="1" data-image="images/img_2.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/shopkins/5.jpg" width="150px" height="150px">
+                        <br>
+                        product 22 - <strong>$30</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="images/img_3.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/shopkins/6.jpg" width="150px" height="150px">
+                        <br>
+                        product 23 - <strong>$40</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="images/img_4.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/shopkins/7.jpg" width="150px" height="150px">
+                        <br>
+                        product 24 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="../images/shopkins/8.jpg" width="150px" height="150px">
+                        <br>
+                        product 25 - <strong>$50</strong>
+                        <br>
+                        <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                        <a href="#" class="btn btn-info">Details</a>
+                    </div>
+            </div>
+            <script src="js/jquery-2.2.3.min.js"></script>
+             <script type='text/javascript' src="js/bootstrap.min.js"></script>       
+            <script type='text/javascript' src="js/jquery.mycart.js"></script>         
+            <script type="text/javascript">
+                
+  $(function () {
+
+    var goToCartIcon = function($addTocartBtn){
+      var $cartIcon = $(".my-cart-icon");
+      var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+      $addTocartBtn.prepend($image);
+      var position = $cartIcon.position();
+      $image.animate({
+        top: position.top,
+        left: position.left
+      }, 500 , "linear", function() {
+        $image.remove();
+      });
+    }
+
+    $('.my-cart-btn').myCart({
+      currencySymbol: '$',
+      classCartIcon: 'my-cart-icon',
+      classCartBadge: 'my-cart-badge',
+      classProductQuantity: 'my-product-quantity',
+      classProductRemove: 'my-product-remove',
+      classCheckoutCart: 'my-cart-checkout',
+      affixCartIcon: true,
+      showCheckoutModal: true,
+      numberOfDecimals: 2,
+      cartItems: [
+        {id: 1, name: 'product 1', summary: 'summary 1', price: 10, quantity: 1, image: 'images/img_1.png'},
+        {id: 2, name: 'product 2', summary: 'summary 2', price: 20, quantity: 2, image: 'images/img_2.png'},
+        {id: 3, name: 'product 3', summary: 'summary 3', price: 30, quantity: 1, image: 'images/img_3.png'}
+      ],
+      clickOnAddToCart: function($addTocart){
+        goToCartIcon($addTocart);
+      },
+      afterAddOnCart: function(products, totalPrice, totalQuantity) {
+        console.log("afterAddOnCart", products, totalPrice, totalQuantity);
+      },
+      clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) {
+        console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
+      },
+      checkoutCart: function(products, totalPrice, totalQuantity) {
+        var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
+        checkoutString += "\n\n id \t name \t summary \t price \t quantity \t image path";
+        $.each(products, function(){
+          checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
+        });
+        alert(checkoutString)
+        console.log("checking out", products, totalPrice, totalQuantity);
+      },
+      getDiscountPrice: function(products, totalPrice, totalQuantity) {
+        console.log("calculating discount", products, totalPrice, totalQuantity);
+        return totalPrice * 0.5;
+      }
+    });
+
+    $("#addNewProduct").click(function(event) {
+      var currentElementNo = $(".row").children().length + 1;
+      $(".row").append('<div class="col-md-3 text-center"><img src="images/img_empty.png" width="150px" height="150px"><br>product ' + currentElementNo + ' - <strong>$' + currentElementNo + '</strong><br><button class="btn btn-danger my-cart-btn" data-id="' + currentElementNo + '" data-name="product ' + currentElementNo + '" data-summary="summary ' + currentElementNo + '" data-price="' + currentElementNo + '" data-quantity="1" data-image="images/img_empty.png">Add to Cart</button><a href="#" class="btn btn-info">Details</a></div>')
+    });
+  });               
+            </script>
+        </section>    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <footer class="footer-distributed">
+        <div class="footer-left">
+            <p class="footer-links">
+                <a href="../index.html">Home</a>
+                ·
+                <a href="../Brands.html">Brands</a>
+                ·
+                <a href="../Shops.html">Shopping</a>
+                ·
+                <a href="../contact.html">Contact</a>
+            </p>
+            <p class="footer-company-name">Choose Toys &copy; 2017</p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>425 BLOOR STREET EAST, SUITE 200, M4W 3R4</span> Toronto,Canada</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>(416) 922-4250 FAX: (416) 413-0862</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="Elaheemadi@ChooseToys.com">Elaheemadi@ChooseToys.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Choose toys,  is the world’s leading dedicated toy and baby products retailer, offering a differentiated shopping experience through its family of brands.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
